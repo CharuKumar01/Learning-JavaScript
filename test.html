@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body> 
+    <h1>Double tap to change the color</h1>
+    <button id="Orange">Orange</button>
+    <button id="Green">Green</button>
+    <button id="Yellow">Yellow</button>
+    <button id="Red">Red</button>
+    <button id="Blue">Blue</button>
+    <button id="Grey">Grey</button>
+</body>
+<script>
+    document.addEventListener("click", (e) => {
+        console.log(e)
+        const id = e.target.id
+        console.log(id)
+        document.getElementById(id).onclick = clickHandler(id)
+    })
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    } 
+</script>
+</html>
